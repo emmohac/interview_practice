@@ -43,4 +43,40 @@ public:
         }
         return k->next;
     }
+    ListNode *deleteDuplicate2(ListNode *head) {
+        // Time complexity: O(N) - N is the length of head
+        // Space complexity: O(1)
+
+
+        // returns nullptr if head is nullptr or if there is only 
+        // one element in the list
+        if (!head || !head->next)
+            return nullptr;
+
+        // create dummy node in case there is no unique element
+        ListNode *k = new ListNode(-1, head);
+        ListNode *c = k,                // current
+                *t = nullptr,           // temp
+                *to_delete = nullptr;
+        while (c->next) {
+            t = c->next;
+            if (t && t->next && t->val == t->next->val) {
+                // while there are duplicates
+                while (t && t->next && t->val == t->next->val) {
+                    to_delete = t->next;
+                    // just need to update next pointer
+                    t->next = to_delete->next;
+                    // reclaim memory
+                    delete to_delete;
+                }
+                // update next pointer of current
+                c->next = t->next;
+                // avoid having another dangling pointer pointing at t->next
+                t->next = nullptr;
+                delete t;
+            } else
+                c = c->next;
+        }
+        return k->next;
+    }
 }
