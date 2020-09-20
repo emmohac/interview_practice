@@ -11,6 +11,8 @@
 class Solution {
 public:
     std::vector<int> nextGreaterNode(ListNode *head) {
+        // Time complexity: O(N) - N is length of the linked list
+        // Space complexity: O(N) - N is number of element in linked list
         // If the head is nullptr, returns empty vector
         if (!head)
             return std::vector<int>{};
