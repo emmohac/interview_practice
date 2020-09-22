@@ -8,13 +8,15 @@
 *   }
 */
 
-class Solution {
+class Solution
+{
 public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-        // Time complexity: O(N + M) - N is length of l1, M is length of l2
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+    {
+        // Time complexity: O(max(O,N)) - N is length of l1, M is length of l2
         // Space complexity: O(N + M) - N is elements in l1, M is elements in l2
 
-        ListNode *c = nullptr;                      // current
+        ListNode *c = nullptr; // current
 
         // adding element from l1 and l2 into s1 and s2 respectively
         std::stack<int> s1;
@@ -28,12 +30,13 @@ public:
         // reclaim memory since not being used anymore
         delete c;
 
-        ListNode *ret = nullptr;                    // return
-        ListNode *t = nullptr;                      // temp
+        ListNode *ret = nullptr; // return
+        ListNode *t = nullptr;   // temp
 
         int top, bot, carry = 0, sum = 0;
 
-        while (!s1.empty() || !s2.empty()) {
+        while (!s1.empty() || !s2.empty())
+        {
             // if s1 is not empty, top is assigned to top of s1
             top = !s1.empty() ? s1.top() : 0;
             // if s2 is not empty, top is assigned to top of s2

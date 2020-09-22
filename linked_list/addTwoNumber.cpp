@@ -8,21 +8,24 @@
 *   }
 */
 
-class Solution {
+class Solution
+{
 public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-        // Time complexity: O(N + M) where N is lenght of linked list l1 and M is
-        // length of linked list l2
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+    {
+        // Time complexity: O(max(O,N)) where N is lenght of linked list l1 and
+        // M is length of linked list l2
         // Space complexity: O(1)
 
-        ListNode *c1 = l1;              // current1
-                *c2 = l2;               // current2
+        ListNode *c1 = l1; // current1
+        *c2 = l2;          // current2
 
-        ListNode *h = new ListNode();   // holder
-        ListNode *c = h;                // current
+        ListNode *h = new ListNode(); // holder
+        ListNode *c = h;              // current
 
         int top, bot, carry = 0, sum = 0; // top for value at c1, bot for value at c2
-        while (c1 || c2) {
+        while (c1 || c2)
+        {
             // if c1 is not nullptr, assign top to value at c1, else 0
             top = c1 ? c1->val : 0;
             // if c2 is not nullptr, assign bot to value at c2, else 0
