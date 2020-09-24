@@ -19,8 +19,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution
-{
+class Solution {
 public:
     // this function is called to check if the value at root is same as value at head
     // if so, it will check value of left child and head next or right child and head next
